@@ -6,42 +6,20 @@ class NodoArbol:
         self.hijoIzquierdo = izquierdo
         self.hijoDerecho = derecho
         self.padre = padre
-
-
-  #  def reemplazarDatoDeNodo(self,clave,valor,hizq,hder):
-  ##      self.clave = clave
-   #     self.cargaUtil = valor
-   #     self.hijoIzquierdo = hizq
-    #    self.hijoDerecho = hder
-    #    if self.tieneHijoIzquierdo():
-    #        self.hijoIzquierdo.padre = self
-    #    if self.tieneHijoDerecho():
-    #        self.hijoDerecho.padre = self
-
-
         
-
 class ArbolBinario:
 
     def __init__(self, capacidad, etiqueta = None):
         self.raiz = NodoArbol(capacidad = capacidad, etiqueta= etiqueta )
         self.tamano = 0
         self.names = []  
-        self.crearArbol(self.raiz)
-        
-
-    def longitud(self):
-        return self.tamano
-
-    def __len__(self):
-        return self.tamano
+        self.crearArbol(self.raiz)        
     def crearArbol(self, nodoActual):        
         if(nodoActual.capacidad != 2):
             nodoActual.hijoIzquierdo = NodoArbol(capacidad= nodoActual.capacidad //2, padre = nodoActual)
             nodoActual.hijoDerecho = NodoArbol(capacidad= nodoActual.capacidad //2, padre = nodoActual)
             self.crearArbol( nodoActual.hijoIzquierdo)
             self.crearArbol( nodoActual.hijoDerecho)
-
     def printArbol(self, nodoActual, nivel = 0, direccion = None):
         if nodoActual == self.raiz:
             if(nodoActual.ocupado is not None):
@@ -94,9 +72,7 @@ class ArbolBinario:
         else:            
             if(nodoActual.ocupado):
                 return True
-              
 
-            
     def buscarInsertarArbol(self, capacidad, aOcupar, etiqueta, nodoActual, array):      
     
         if (nodoActual.capacidad == capacidad and not(nodoActual.ocupado)):
@@ -212,43 +188,6 @@ class ArbolBinario:
             return print("Imposible liberar memoria de etiqueta no existente")
         return self.buscarLiberarArbol(etiqueta, self.raiz)
 
-        
-
-
-def main():
-    print("Bienvenido al manejador de memoria pirata")
-    while True:
-        try:
-            bloques = int(input("Por favor introduzca el numero de bloques a manejar: "))
-            if(bloques >= 1):
-                break
-            print("El minimo a introducir es 1")
-        except:
-            print("Por favor introduzca un numero entero!")
-    miArbol = ArbolBinario(2 ** bloques)
-    while True:
-        opcion = input("Introduzca RESERVAR para reserservar espacio en memoria, LIBERAR para liberar espacio, MOSTRAR para mostrar el estado actual de la memoria o SALIR para finalizar el programa ")
-        
-        if opcion.lower() == 'reservar':
-            try:
-                num_bloques = int(input("Introduzca el numero de bloques a reservar: "))
-            except:
-                print("Numero de bloques inválido, volviendo al menu principal")
-            etiqueta = input("Introduzca la etiqueta del programa a reservar la memoria: ")
-            miArbol.agregar(num_bloques, etiqueta)
-        elif opcion.lower() == 'liberar':
-            etiqueta = input("Introduzca la etiqueta del programa a liberar los bloques de memoria: ")
-            miArbol.liberar(etiqueta)
-        elif opcion.lower() == 'mostrar':
-            miArbol.printArbol(miArbol.raiz)
-        elif opcion.lower() == 'salir':
-            break
-        else:
-            print("Introduzca una opcion valida")
-            
-
-if __name__ == '__main__':
-    main()
 
 
 

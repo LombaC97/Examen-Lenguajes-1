@@ -100,7 +100,25 @@ class TestTreeMethods(unittest.TestCase):
         node = miArbol.agregar(8, 'Hola')
         miArbol.liberar('Hola')
         self.assertIsNone(miArbol.revisarHijosPrint(node))
-
+    #Prints a free tree
+    def test_print_tree(self):
+        miArbol = buddy.ArbolBinario(16)
+        miArbol.printArbol(miArbol.raiz)
+        print("\n\n")
+    #Prints a tree with just one node inserted
+    def test_print_tree2(self):
+        miArbol = buddy.ArbolBinario(16)
+        miArbol.agregar(1,'Hola')
+        miArbol.printArbol(miArbol.raiz)
+        print("\n\n")
+    #prints a tree with some nodes inserted
+    def test_print_tree3(self):
+        miArbol = buddy.ArbolBinario(32)       
+        miArbol.agregar(1,'Hola')
+        miArbol.agregar(8,'Hola2')
+        
+        miArbol.printArbol(miArbol.raiz)
+        print("\n\n")
 
 if __name__ == '__main__':
     unittest.main()
