@@ -1,10 +1,9 @@
 #include <stdio.h>
-#include <limits.h>
-#include <stdlib.h>
 
 
 
-//5a 
+
+//5.a 
 int recursiva(int n){
 	if(n>=0 && n<25){
 		return n;
@@ -13,7 +12,7 @@ int recursiva(int n){
 	}
 }
 
-//5b
+//5.b
 int recursiva_cola_aux(int f1, int f2, int f3, int f4, int f5, int i, int n){
 	if(i == n){
 		return (f1 + f2 + f3 + f4 +f5);
@@ -30,6 +29,7 @@ int llama_recursiva_cola(int n){
 	}
 }
 
+//5.c
 int iterativa(int n){
 	if(n< 25){return n;}
 
@@ -49,8 +49,8 @@ int iterativa(int n){
 
 
 void main(){
-	printf("%i\n", llama_recursiva_cola(151));
-	printf("%i\n", recursiva(151));
-	printf("%i\n", iterativa(151));
+	printf("\nLlamada de cola: %i", llama_recursiva_cola(151));
+	printf("\nLlamada recursiva normal: %i", recursiva(151));
+	printf("\nLlamada iterativa: %i\n", iterativa(151));
 
 }
