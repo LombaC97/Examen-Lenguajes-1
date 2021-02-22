@@ -8,21 +8,6 @@ class Nodos:
         self.h_izquierdo  = h_izquierdo 
         self.h_derecho = h_derecho
     
-    #Basicamente se va iterando por cada uno de los nodos, siempre empezando desde la operacion principal que fue la que
-    #quedo en el tope de la pila, y va bajando hasta que se quede vacia
-    def operar(self):
-    
-        if(self.expresion == '+'):
-            return int(self.h_izquierdo.operar()) + int(self.h_derecho.operar())
-        elif(self.expresion == '*'):
-            return int(self.h_izquierdo.operar()) * int(self.h_derecho.operar())
-        elif(self.expresion == '-'):
-            return int(self.h_izquierdo.operar()) - int(self.h_derecho.operar())
-        elif(self.expresion == '/'):
-            return int(self.h_izquierdo.operar()) // int(self.h_derecho.operar())
-        else:
-            return int(self.expresion)
-
     #Es mas complejo que operar, dado que ahora queremos ir imprimiendo en una linea la operacion escrita en in order
     #Esta operacion nuevamente se llama de manera recursiva, primero con el nodo del tope de la pila y luego
     # va bajando por ambos hijos, cada hijo llama a sus hijos, etc
