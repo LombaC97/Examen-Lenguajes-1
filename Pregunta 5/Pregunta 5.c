@@ -1,5 +1,5 @@
 #include <stdio.h>
-
+#include <time.h>
 
 
 
@@ -49,8 +49,24 @@ int iterativa(int n){
 
 
 void main(){
-	printf("\nLlamada de cola: %i", llama_recursiva_cola(151));
-	printf("\nLlamada recursiva normal: %i", recursiva(151));
-	printf("\nLlamada iterativa: %i\n", iterativa(151));
+	clock_t t;
+	double time;
+	t = clock();
+	printf("\nLlamada recursiva normal: %i\n", recursiva(160));
+	t = clock() - t;
+	time = ((double) t)/CLOCKS_PER_SEC;	
+	printf("Tiempo tomado por recursividad normal en segundos %f", time);
+	
+	t = clock();
+	printf("\nLlamada de cola: %i\n", llama_recursiva_cola(160));
+	t = clock() - t;
+	time = ((double) t)/CLOCKS_PER_SEC;
+	printf("Tiempo tomado por recursividad de cola en segundos: %f", time);
+	
+	t = clock();
+	printf("\nLlamada iterativa: %i\n", iterativa(160));
+    t = clock() - t;
+	time = ((double) t)/CLOCKS_PER_SEC;
+	printf("Tiempo tomado por funcion iterativa en segundos: %f\n", time);
 
 }
